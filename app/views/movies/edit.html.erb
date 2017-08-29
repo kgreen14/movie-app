@@ -1,0 +1,10 @@
+<h2>Edit Movie</h2>
+
+<%= render "partials/movie_form" %>
+
+<form action="/movies/<%= @movie.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <input class="delete" type="submit" value="Delete Movie">
+</form>
