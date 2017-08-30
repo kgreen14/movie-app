@@ -7,12 +7,36 @@ class MoviesController < ApplicationController
     @movie = Movie.new
   end
 
+  def show
+    @movie = Movie.find params[:id]
+  end
+
   def edit
+    @movie = Movie.find params[:id]
   end
 
   def create
-    form_movie = params[:movie]
-    @movie = Movie.create!(title: form_movie[:title], genre: form_genre[:genre], year: form_movie[:year])
-    redirect_to "/movies/#{@movie.id}"
+    @movie = Movie.create(movie_params)
+    redirect_to movie_path(@movie)
   end
+
+  def update
+    @movie = Movie.find params[:id]
+    @movie.update(movie_params)
+    redirect_to movie_path(@movie)
+  end
+  
+  def destroy
+    @movie = Movie.find params[:id]
+    @movie.destroy
+    redirect_to movies_path
+  end
+
+
+  private
+  def movie_params
+    params.require(:movie).permit(:title, :genre, :year, :synopsis, :picture)
+  end
+
 end
+

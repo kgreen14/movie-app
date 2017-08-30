@@ -1,1 +1,19 @@
-<%= render "partials/movie_form" %>
+<h2>Create Movie</h2>
+<%= form_for @movie do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :synopis %>
+  <%= f.text_field :synopis %>
+  <br>
+  <%= f.label :year %>
+  <%= f.number_field :year %>
+  <br>
+  <%= f.label :picture %>
+  <%= f.text_field :picture %>
+  <br>
+  <%= f.label :genre %>
+  <%= f.text_field :genre %>
+  <br>
+  <%= f.submit "Add a movie!"%>
+<% end %>

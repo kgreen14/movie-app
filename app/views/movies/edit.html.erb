@@ -1,10 +1,19 @@
-<h2>Edit Movie</h2>
-
-<%= render "partials/movie_form" %>
-
-<form action="/movies/<%= @movie.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-  <input class="delete" type="submit" value="Delete Movie">
-</form>
+<h2>Update Movie</h2>
+<%= form_for @movie do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :synopsis %>
+  <%= f.text_field :synopis %>
+  <br>
+  <%= f.label :year %>
+  <%= f.number_field :year %>
+  <br>
+  <%= f.label :picture %>
+  <%= f.text_field :picture %>
+  <br>
+  <%= f.label :genre %>
+  <%= f.text_field :genre %>
+  <br>
+  <%= f.submit "Update Movie!"%>
+<% end %>

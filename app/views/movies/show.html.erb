@@ -1,2 +1,10 @@
 <h2><%= @movie.title %> <%= link_to "(edit)", edit_movie_path %></h2>
 
+<%= image_tag @movie.picture %>
+
+<h3><%= @movie.year %></h3>
+<h3><%= @movie.genre.capitalize %></h3>
+<p><%= @movie.synopis %></p>
+
+<%= button_to "Edit", edit_movie_path(@movie), method: :get %>
+<%= button_to "Remove", movie_path(@movie), method: :delete%>
